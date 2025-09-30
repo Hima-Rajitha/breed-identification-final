@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Cattle Breed Classification{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <i class="fas fa-upload fa-3x text-primary mb-3"></i>
+                    <h2 class="card-title">Upload Cattle Image</h2>
+                    <p class="text-muted">Upload an image to identify the cattle breed and learn about its features</p>
+                </div>
+                
+                <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
+                    <div class="upload-area" id="upload-area">
+                        <i class="fas fa-cloud-upload-alt fa-4x text-muted mb-3"></i>
+                        <h5 class="text-muted">Click to upload or drag and drop</h5>
+                        <p class="text-muted mb-0">PNG, JPG, JPEG, GIF up to 16MB</p>
+                        <input type="file" class="d-none" id="file-input" name="file" accept="image/*" required>
+                        <div id="file-name" class="mt-2"></div>
+                    </div>
+                    
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>Identify Breed
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-4">
+                    <h6 class="text-muted">Supported Breeds:</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled small text-muted">
+                                <li><i class="fas fa-check text-success me-2"></i>Cross-bred Dairy Cattle</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Exotic Dairy Breeds</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Indigenous Dairy Breeds</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled small text-muted">
+                                <li><i class="fas fa-check text-success me-2"></i>Indigenous Draught Breeds</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Indigenous Dual Purpose Breeds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
